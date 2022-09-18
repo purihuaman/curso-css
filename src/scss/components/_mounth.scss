@@ -1,0 +1,11 @@
+.month {
+	background: #3a4e81;
+	// mix-blend-mode: color-dodge;
+	border-radius: var(--bradius-second);
+	margin-bottom: var(--n-margin);
+	padding: var(--n-padding);
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}

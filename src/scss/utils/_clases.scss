@@ -1,0 +1,56 @@
+.sections {
+	padding: var(--x-padding) 0;
+
+	@include querys(laptops) {
+		display: flex;
+		justify-content: center;
+		gap: var(--l-gap);
+	}
+}
+
+.light-text {
+	color: var(--grey-300);
+}
+
+.text-center {
+	text-align: center;
+}
+
+// ==> active menu class <==
+
+.active {
+	color: var(--link-color);
+	font-family: var(--heading-font);
+	font-weight: bold;
+}
+
+.bannerGradient {
+	background-image: var(--gradient-banner);
+	color: var(--grey-100);
+}
+
+.whiteText {
+	color: var(--grey-100);
+}
+
+.svg {
+	max-width: 100%;
+	width: 100%;
+	height: auto;
+	min-height: 100%;
+	display: block;
+}
+
+.overflow-y-hidden {
+	overflow-y: hidden;
+}
+
+.line-rule {
+	margin: 0;
+	border: none;
+	outline: none;
+	height: 2px;
+	transition: var(--transition);
+	background-color: var(--third-bg);
+	border-radius: var(--bradius);
+}

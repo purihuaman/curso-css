@@ -1,0 +1,34 @@
+// ==> Config <==
+@import './config/vars';
+@import './config/mixins';
+
+// ==> Base <==
+
+@import './base/normalize';
+@import './base/my-reset';
+@import './base/base';
+
+// ==> Layout <==
+// @import './layout/layout';
+// @import './layout/main';
+// @import './layout/footer';
+
+// ==> Theme <==
+@import './theme/colors';
+@import './theme/typography';
+
+// ==> Components <==
+// @import './components/position';
+// @import './components/country';
+// @import './components/mounth';
+@import './components/variables';
+@import './components/pseudoelementos';
+@import './components/lists';
+
+// ==> Helpers <==
+@import './helpers/buttons';
+@import './helpers/scroll';
+
+// ==> Utils <==
+// @import './utils/clases';
+// @import './utils/animations';

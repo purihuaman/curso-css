@@ -1,0 +1,218 @@
+/*
+	* Pseudoelementos
+		- Los que generan contenido: Pretende ser un elemento como un elemento html
+		- Los que seleccionan algo especifico: Manipula algo del contenido
+
+		- ::after {
+			content: ''; // Propiedad obligatoria
+		}
+		- ::before {
+			content: ''; // Propiedad obligatoria
+			content: attr(atributo); // El valor attr recibe como argumento un atributo html (class, id, data).
+		}
+*/
+
+#pseudoelementos {
+	--color-text: red;
+}
+
+.before-after {
+	margin-top: var(--header-height);
+	quotes: '\00AB''\00BB';
+
+	&__box {
+		width: 200px;
+		height: 200px;
+		background-color: var(--color-text);
+
+		&::before,
+		&::after {
+			content: '';
+			width: 100px;
+			height: 100px;
+			display: block;
+		}
+
+		&::before {
+			background-color: purple;
+		}
+
+		&::after {
+			background-color: green;
+		}
+
+		&:empty {
+			background-color: gold;
+		}
+		&:empty::after {
+			content: 'Agregar contenido';
+			background-color: goldenrod;
+			text-align: center;
+			vertical-align: text-bottom;
+		}
+	}
+
+	&__attr {
+		&::before {
+			content: attr(class);
+			content: attr(data-name);
+			content: open-quote;
+		}
+
+		&::after {
+			content: '\2665';
+			content: close-quote;
+		}
+	}
+
+	&::after {
+		content: url(https://cdn.svgporn.com/logos/greensock-icon.svg);
+		display: block;
+		width: 100px;
+		height: 100px;
+		background-color: red;
+		overflow: hidden;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		object-fit: contain;
+	}
+
+	&__users {
+		display: flex;
+		align-items: center;
+		gap: var(--s-gap);
+
+		&::after {
+			content: '';
+			display: inline-block;
+			background-image: url(https://flagicons.lipis.dev/flags/4x3/pe.svg);
+			height: 1rem;
+			width: 1.5rem;
+			background-repeat: no-repeat;
+			background-size: contain;
+		}
+
+		&.peru::after {
+			background-image: url(https://flagicons.lipis.dev/flags/4x3/pe.svg);
+		}
+
+		&.spain::after {
+			background-image: url(https://flagicons.lipis.dev/flags/4x3/es.svg);
+		}
+
+		&.eeuu::after {
+			background-image: url(https://flagicons.lipis.dev/flags/4x3/um.svg);
+		}
+	}
+
+	&__tooltip {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		background-color: var(--primary-500);
+		padding: var(--n-padding);
+		text-align: center;
+		border-radius: var(--bradius);
+		position: relative;
+
+		&::before {
+			content: '';
+			position: absolute;
+			bottom: -5px;
+
+			display: block;
+			width: 15px;
+			height: 15px;
+			background-color: inherit;
+			transform: rotate(45deg);
+		}
+	}
+
+	&__heart {
+		width: 150px;
+		height: 150px;
+		background-color: var(--red-600);
+		position: relative;
+		transform: rotate(225deg);
+		margin-left: 5rem;
+		border-radius: 0.5rem;
+
+		&::before,
+		&::after {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: inherit;
+			height: inherit;
+			background-color: var(--red-600);
+			border-radius: 100%;
+		}
+
+		&::before {
+			left: 50%;
+		}
+
+		&::after {
+			top: 50%;
+		}
+	}
+
+	&__message {
+		--bg: royalblue;
+		--message: 'Hailee Steinfeld';
+		--icon: '🤗';
+
+		background-color: var(--bg);
+		display: inline-flex;
+		gap: var(--s-gap);
+		padding: var(--n-padding);
+		border-radius: var(--bradius);
+
+		&::before {
+			content: var(--icon);
+		}
+
+		&::after {
+			content: var(--message);
+		}
+
+		&.alert {
+			--bg: var(--red-600);
+			--icon: '⚠';
+		}
+
+		&.success {
+			--bg: var(--green-700);
+			--icon: '✅';
+		}
+	}
+}
+
+.first-line {
+	margin-top: var(--header-height);
+
+	&__text {
+		&::first-line {
+			color: royalblue;
+		}
+
+		&::first-letter {
+			color: gold;
+			font-size: 2rem;
+			float: left;
+			line-height: 0.7;
+		}
+
+		&:hover::first-letter {
+			color: orangered;
+		}
+
+		&::selection {
+			background-color: red;
+			text-shadow: 2px 2px 2px;
+		}
+	}
+}

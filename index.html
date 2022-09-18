@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="icon" type="image/svg+xml" href="/assets/icons/vite.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Aprendiendo CSS</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Mulish&family=Quicksand:wght@600;700&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body>
+		<div id="app">
+			<section class="screen">
+				<!-- Listas -->
+				<div id="lists" class="lists">
+					<!-- Listas no ordenadas -->
+					<ul class="lists__noorders">
+						<li>item</li>
+						<li>item</li>
+						<li>item</li>
+						<li>item</li>
+						<li>item</li>
+					</ul>
+
+					<!-- Listas ordenadas -->
+					<ol start="10" reversed class="lists__orders">
+						<li>item</li>
+						<li value="9">item</li>
+						<li>item</li>
+						<li>item</li>
+						<li>item</li>
+					</ol>
+				</div>
+
+				<!-- Pseudoelementos -->
+				<div id="pseudoelementos">
+					<div class="first-line">
+						<p class="first-line__text">
+							Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus
+							modi facilis consequatur, consectetur commodi aliquam recusandae
+							animi eveniet, facere delectus iusto similique nihil laudantium,
+							laborum ea cumque quasi. Consectetur, non!
+						</p>
+					</div>
+
+					<div class="before-after">
+						<div class="before-after__box"></div>
+						<div data-name="Nombre" class="before-after__attr">Atributo</div>
+					</div>
+
+					<div>
+						<p class="before-after__users peru">Pedro Purihuaman</p>
+						<p class="before-after__users spain">Pablo Castellanos</p>
+						<p class="before-after__users eeuu">Hailee Steinfeld</p>
+					</div>
+
+					<div class="before-after__tooltip">Pedro Purihuaman</div>
+
+					<div class="before-after__heart"></div>
+
+					<p class="before-after__message"></p>
+					<p class="before-after__message alert"></p>
+					<p class="before-after__message success"></p>
+				</div>
+
+				<!-- Variables -->
+				<div id="variables">
+					<header></header>
+
+					<h1>Variables en CSS</h1>
+					<p class="paragraph">
+						Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+						Reprehenderit vel, nihil molestias ab qui odio autem dolore dicta
+						deleniti rem natus a voluptatibus ad ratione aut? Maxime ex earum
+						delectus?
+					</p>
+
+					<div class="box"></div>
+
+					<article>
+						<p class="texto">
+							<a href="#">ViewTech</a><span>Hello World</span>
+						</p>
+					</article>
+
+					<article class="buttons">
+						<div>
+							<button class="boton">Normal</button>
+							<button class="boton ghost">Ghost</button>
+							<button class="boton dark">Dark</button>
+							<button class="boton transp">Transparent</button>
+						</div>
+
+						<div>
+							<button class="boton green">Normal</button>
+							<button class="boton green ghost">Ghost</button>
+							<button class="boton green dark">Dark</button>
+							<button class="boton green transp">Transparent</button>
+						</div>
+
+						<div>
+							<button class="boton blue">Normal</button>
+							<button class="boton blue ghost">Ghost</button>
+							<button class="boton blue dark">Dark</button>
+							<button class="boton blue transp">Transparent</button>
+						</div>
+					</article>
+				</div>
+
+				<!-- Position -->
+				<section id="positions">
+					<div class="modal">
+						<div class="modal__content">
+							<h1>Esto es una ventana modal</h1>
+							<p>Creada en el curso de CSS</p>
+						</div>
+					</div>
+
+					<div class="">
+						<h1>Position Fixed</h1>
+
+						<p class="fixed">
+							Lorem ipsum dolor sit amet consectetur adipisicing elit.
+							Consequuntur consectetur, placeat, nisi minima sed exercitationem
+							fugit temporibus odit nostrum officia modi! Beatae corporis velit
+							sunt maiores molestiae aliquam distinctio quae!
+						</p>
+						<p>
+							Excepturi temporibus deserunt quasi reprehenderit eos alias
+							numquam quia, consectetur, nisi ad ab vero aperiam odit quibusdam
+							ipsum placeat maxime quo sapiente perspiciatis? Error suscipit
+							reiciendis modi minima sed! Laborum!
+						</p>
+					</div>
+				</section>
+			</section>
+		</div>
+		<script type="module" src="/main.js"></script>
+	</body>
+</html>

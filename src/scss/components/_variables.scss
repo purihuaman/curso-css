@@ -1,0 +1,214 @@
+/*
+  * Declaración de variable
+  :root {
+    --color-text: purple;
+    --color-title: hsl | rgb | rgba | hex;
+    --shadow: 2px 2px 2px blue, 2px 2px 2px green, 2px 2px 2px red;
+  }
+
+  * Usando variables
+  .paragraph {
+    color: var(--color-text);
+    color: var(--color-text, var(--color-title, skyblue)); // Usando follback
+  }
+
+	* Herencia y Cascada
+		- Hereda la variable de su padre.
+	
+	* Variables CSS vs Variables SASS
+		- Sintaxis
+			- Variables css
+				:root {
+					--color-text: green;
+				}
+			- Variables sass
+				$color-text: purple;
+		- Scope
+			- CSS
+				Tiene scope de DOM
+			- SASS
+				Tiene scope de bloque, pero si se declara arriba del un archivo tiene scope de bloque.
+		- Interpolación
+			- CSS
+				No permite interpolación
+			- SASS
+				Permite interpolación
+		- Operaciones
+			-	CSS
+				No retorna un resultado. El calculo lo hace en tiempo real. Usa la función calc()
+			- SASS 
+				Devuelve el resultado. 
+		- Reasignación de valor
+			- CSS
+				Permite la reasignacion de valor, despues de usarse en diferentes scope, siempre que este declarado en la parte superior.
+			- SASS
+				No* permite la reasignacion de valor, bueno si acepta pero es muy complicado.
+		-
+	
+	* Responsive Web Design
+		- CSS
+			Ayuda en la reasignación de valores. No vale asiganar como valor de una media query.
+		- SASS
+			Ayuda porque se puede asignar como valor de una media query.
+
+	* Temas
+		- Unsando media query para preferencia de tema del sistema
+			@media (prefers-color-scheme: no-preference | light | dark){}
+
+	*
+
+*/
+
+:root {
+	--color-title: skyblue;
+	--color-text: royalblue;
+	--width-box: 200px;
+	--height-box: 200px;
+	--bradius: 0.5rem;
+	--shadow: 4px 4px 4px orange, 8px 8px 4px green, 12px 12px 4px red;
+}
+
+$color-text: purple;
+
+h1 {
+	color: var(--color-title);
+}
+
+.paragraph {
+	color: var(--color-text);
+}
+
+.box {
+	$width-box: 200px;
+	background-color: var(--color-text);
+	background-color: $color-text;
+	width: calc(var(--width-box) * 2);
+	height: var(--height-box);
+	border-radius: var(--bradius);
+	box-shadow: var(--shadow);
+
+	width: $width-box * 2;
+}
+
+.texto {
+	--color-link: crimson;
+	--color-span: orchid;
+
+	$color-link: green;
+	$color-span: gold;
+
+	span {
+		color: $color-span;
+	}
+
+	a {
+		color: $color-link;
+		--color-link: #{$color-link};
+		color: var(--color-link);
+	}
+}
+
+// .texto span {
+// 	--color-span: skyblue;
+// 	color: var(--color-span);
+// }
+
+// .texto a {
+// 	color: var(--color-link);
+// }
+
+$selector: article;
+#{$selector} {
+	background: #000;
+}
+
+#variables {
+	--header-height: 3rem;
+	@media screen and (min-width: 1024px) {
+		--header-height: 4rem;
+	}
+}
+
+#variables header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: var(--header-height);
+	background-color: var(--second-bg);
+
+	@media screen and (min-width: 1024px) {
+		background-color: var(--primary-500);
+	}
+}
+
+#variables h1 {
+	margin-top: var(--header-height);
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--first-bg: #222;
+	}
+}
+
+.buttons {
+	--color: crimson;
+	--color-alt: red;
+
+	& div {
+		display: flex;
+		gap: var(--n-gap);
+		margin-bottom: 2rem;
+	}
+}
+.boton {
+	font-weight: 600;
+	padding: 0.5rem 0.75rem;
+	cursor: pointer !important;
+	background-color: var(--color);
+	border: 1px solid var(--color);
+
+	&:hover {
+		background-color: var(--color-alt);
+	}
+
+	&.ghost {
+		background-color: transparent;
+		color: var(--color);
+
+		&:hover {
+			background-color: var(--color);
+			color: white;
+		}
+	}
+
+	&.dark {
+		background-color: var(--color-alt);
+
+		&:hover {
+			background-color: var(--color);
+		}
+	}
+
+	&.transp {
+		background-color: transparent;
+		border: none;
+		color: var(--color);
+
+		&:hover {
+			color: var(--color-alt);
+			border: 1px solid var(--color-alt);
+		}
+	}
+
+	&.green {
+		--color: green;
+		--color-alt: limegreen;
+	}
+
+	&.blue {
+		--color: royalblue;
+		--color-alt: steelblue;
+	}
+}

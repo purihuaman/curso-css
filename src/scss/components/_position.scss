@@ -1,0 +1,54 @@
+// #positions {
+// 	width: 100%;
+// 	background-color: red;
+// 	height: 300px;
+// }
+
+// .fixed {
+// 	position: fixed;
+// 	top: 0;
+// 	background-color: green;
+// }
+
+.modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--grey-1000);
+
+	&__content {
+		padding: var(--n-padding);
+		background-color: var(--second-bg);
+	}
+}
+
+/* 
+	Position
+		- static (default) | absolute | relative | fixed | sticky
+
+	Propiedades offset
+		- top
+		- right
+		- bottom
+		- left
+	
+	* Cada valor tiene una referencia para moverse
+		- relative: Su úbicación inicial en la web
+
+		- absolute: 
+			El ancestro posicioando más cercano.
+			Si no tiene acentro, su referencia es el el body
+
+		- Fixed
+			Su referencia es el viewoport
+
+		- stycky
+			Tiene comportamiento de relative y fixed
+			No pierde su espacio en el flujo
+	
+ */

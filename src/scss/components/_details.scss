@@ -1,0 +1,48 @@
+.details {
+	margin-top: var(--n-margin);
+	min-width: 360px;
+	width: 100%;
+	max-width: 800px;
+	display: flex;
+	flex-direction: column;
+	gap: var(--n-gap);
+	background-image: url('/assets/images/darling.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	padding: var(--n-padding);
+	border-radius: var(--bradius-second);
+
+	&__country {
+		padding: var(--n-padding);
+		border-radius: var(--bradius-second);
+		box-shadow: var(--shadow-all);
+	}
+
+	&__months {
+		padding: var(--n-padding);
+	}
+
+	&__search {
+		margin-bottom: var(--x-margin);
+	}
+
+	&__input {
+		background-color: transparent;
+		border-color: var(--grey-300);
+		&::placeholder {
+			color: var(--text-color);
+		}
+
+		&.alert {
+			border-color: var(--red-500);
+		}
+	}
+
+	&__alert {
+		display: block;
+
+		&.alert {
+			color: var(--red-500);
+		}
+	}
+}

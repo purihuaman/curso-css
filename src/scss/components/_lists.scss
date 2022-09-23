@@ -1,8 +1,18 @@
 .lists {
 	margin-top: var(--header-height);
+	counter-reset: list-counter 20;
 
 	&__orders {
 		list-style-type: upper-roman;
+		list-style-position: outside;
+		list-style-position: inside;
+		counter-increment: list-counter;
+
+		&::marker {
+			color: red !important;
+			background-color: green;
+			content: counter(list-counter);
+		}
 	}
 
 	&__noorders {
@@ -15,19 +25,68 @@
 
 		// list-style-image: url('https://cdn.svgporn.com/logos/css-3.svg');
 
-		list-style: none;
+		// list-style: none;
+
 		& > li {
-			display: flex;
-			align-items: center;
+			// display: flex;
+			// align-items: center;
+
+			counter-increment: list-counter;
+			&::marker {
+				color: #00ffff;
+				// content: '😛';
+				content: counter(list-counter);
+			}
 		}
+
 		& > li::before {
 			content: '';
-			display: block;
-			width: 1rem;
-			height: 1rem;
-			background-image: url('https://cdn.svgporn.com/logos/css-3.svg');
-			background-size: contain;
-			background-repeat: no-repeat;
+			// display: block;
+			// width: 1rem;
+			// height: 1rem;
+			// background-image: url('https://cdn.svgporn.com/logos/css-3.svg');
+			// background-size: contain;
+			// background-repeat: no-repeat;
+		}
+	}
+
+	&__nested,
+	&__subnested,
+	&__subnestedsub {
+		list-style: none;
+		counter-reset: lists-counter;
+
+		& > li {
+			counter-increment: lists-counter;
+
+			&::before {
+				content: counters(lists-counter, '.', numeric) ' ';
+				font-weight: bold;
+			}
+		}
+	}
+}
+
+// FIXME: ==> Ejercicio <==
+
+body {
+	counter-reset: sub-chapter;
+	counter-reset: chapter;
+}
+.chapter {
+	counter-increment: chapter;
+
+	&__title {
+		&::after {
+			content: ' no. ' counter(chapter);
+		}
+	}
+
+	&__paragraph {
+		counter-increment: sub-chapter;
+
+		&::before {
+			content: counter(chapter) '.' counter(sub-chapter) ' ';
 		}
 	}
 }
@@ -36,4 +95,29 @@
 	- Tambien puede recibir código unicode
 	- Solo es soportado por firefox
 	symbols(order 'a' 'b' 'c')
+*/
+
+/*
+	* Contadores con lista de CSS
+	+ Listas unicas [usar la función counter() ]
+		- Declaración del contador (list-counter):
+			ul { counter-reset: list-counter; } // Inicia en cero
+			ul { counter-reset: list-counter 5; } // Inicia en 5
+
+		- Incremento:
+			li { counter-increment: list-counter; } // Incrementa en uno
+			li { counter-increment: list-counter 5; } // Incrementa en 5
+			li { counter-increment: list-counter -2; } // Incrementa en -2
+
+		- Asignación (Se asigna a los pseudoelementos after y before):
+			li::after { content: counter(list-counter) '.' }
+			li::after { content: counter(list-counter, lower-alpha) '.' }
+			li::after { content: counter(list-counter, lower-roman) '.' }
+
+	+ Listas anidadas [usar la función counters() ]
+		- Asignación (Se asigna a los pseudoelementos after y before):
+		- En la función counters son obligatorios los 2 primeros parametros
+			li::after { content: counters(list-counter) '.' }
+			li::after { content: counters(list-counter, ' ' lower-alpha) ' ' }
+			li::after { content: counters(list-counter, '', roman) '.' }
 */

@@ -44,16 +44,15 @@
 	--transform-scale: scale(0.98);
 
 	// TODO: ==> Fonts <==
-	--heading-font: 'Quicksand', -apple-system, BlinkMacSystemFont, Segoe UI,
-		Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-	--body-font: 'Mulish', -apple-system, BlinkMacSystemFont, Segoe UI, Ubuntu,
+	--heading-font: 'Mulish', -apple-system, BlinkMacSystemFont, Segoe UI, Ubuntu,
+		Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+	--body-font: 'Quicksand', -apple-system, BlinkMacSystemFont, Segoe UI, Ubuntu,
 		Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 
 	// TODO: ==> Font font-weight <==
-	--font-bold: 700;
-	--font-semibold: 600;
-	--font-normal: 400;
-	--body-line-height: 1.5;
+	--bold-font: 800;
+	--normal-font: 400;
+	--body-height-line: 1.5;
 }
 
 // TODO: ==> Breapoints <==

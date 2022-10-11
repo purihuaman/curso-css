@@ -1,0 +1,130 @@
+.tables {
+	padding-top: var(--x-padding);
+	margin-top: var(--header-height);
+
+	&__table {
+		border-collapse: collapse;
+		border-collapse: separate;
+		border-spacing: 1rem 0.5rem; // x y
+		empty-cells: hide; // show (default) | hide (ocultar)
+		table-layout: fixed; // fixed (col tamaños iguales) | auto (default)
+
+		width: 100%;
+		margin-top: var(--x-margin);
+		background-color: var(--second-bg);
+		padding: var(--n-padding);
+	}
+
+	&__table,
+	&__th,
+	&__td {
+		border: 1px solid var(--border-color);
+	}
+
+	&__caption {
+		// background-color: var(--primary-500);
+		font-family: var(--heading-font);
+		caption-side: bottom;
+	}
+
+	&__thead {
+	}
+
+	&__tbody {
+	}
+
+	&__tfoot {
+	}
+
+	&__tr {
+	}
+
+	&__th,
+	&__td {
+		padding: var(--s-padding);
+	}
+
+	&__th {
+	}
+
+	&__td {
+	}
+}
+
+.table {
+	width: 100%;
+
+	display: table;
+	border: 1px solid var(--border-color);
+	background-color: var(--second-bg);
+	padding: var(--n-padding);
+}
+.caption {
+	display: table-caption;
+	text-align: center;
+}
+
+.thead {
+	display: table-header-group;
+}
+
+.tfoot {
+	display: table-footer-group;
+}
+
+.tr {
+	display: table-row;
+}
+
+.th {
+	font-family: var(--heading-font);
+	text-align: center;
+}
+
+.th,
+.td {
+	display: table-cell;
+	padding: var(--s-padding);
+	border: 1px solid var(--border-color);
+}
+
+// TODO: ==> Ejercico de tablas <==
+
+.products {
+	width: 100%;
+	background-color: var(--second-bg);
+	table-layout: fixed;
+	border-collapse: collapse;
+
+	&,
+	&__th,
+	&__td {
+		border: 1px solid var(--border-color);
+		padding: var(--s-padding);
+	}
+
+	&__caption {
+		font-family: var(--heading-font);
+	}
+
+	&__thead,
+	&__th {
+		// background-color: var(--primary-500);
+		text-align: center;
+	}
+
+	&__tr {
+		// background-color: #faf;
+	}
+
+	&__td {
+		// background-color: #e44;
+		text-align: right;
+	}
+
+	&__body {
+	}
+
+	&__tfoot {
+	}
+}

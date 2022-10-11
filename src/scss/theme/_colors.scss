@@ -7,22 +7,22 @@
 	--blue-200: #6dbffe;
 	--blue-300: #4cb1fe;
 	--blue-400: #2ea4fe;
-	--blue-500: #1398fe;
+	--blue-500: #1398ff;
 	--blue-600: #018bf5;
 	--blue-700: #017ddc;
 	--blue-800: #0170c6;
-	--blue-900: #1398fe80;
+	--blue-900: #1398ff80;
 }
 
 $blue-100: #91cffe;
 $blue-200: #6dbffe;
 $blue-300: #4cb1fe;
 $blue-400: #2ea4fe;
-$blue-500: #1398fe;
+$blue-500: #1398ff;
 $blue-600: #018bf5;
 $blue-700: #017ddc;
 $blue-800: #0170c6;
-$blue-900: #1398fe80;
+$blue-900: #1398ff80;
 
 // ==> Second color <==
 
@@ -118,18 +118,18 @@ $green-900: #30d15880;
 
 :root {
 	--grey-100: #fcf1fc;
-	--grey-200: #FfF4Fc;
+	--grey-200: #fff4fc;
 	--grey-300: #ebebf0;
-	--grey-400: #68789e;
-	--grey-500: #404a63;
-	--grey-600: #2b3043;
-	--grey-700: #232837;
-	--grey-800: #1a1e29;
-	--grey-900: #13161e;
-	--grey-1000: #13161e80;
+	--grey-400: #7481a7;
+	--grey-500: #414b67;
+	--grey-600: #31384d;
+	--grey-700: #252a3a;
+	--grey-800: #1c202c;
+	--grey-900: #151821;
+	--grey-1000: #15182180;
 
 	// rgb
-	--dark-rgba: #13161e80;
+	--dark-rgba: #15182180;
 	--light-rgba: #fcf1fc80;
 }
 

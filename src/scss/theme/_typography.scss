@@ -84,9 +84,10 @@ h4,
 h5,
 h6,
 strong,
-.bold,
-.semibold {
-	color: var(--title-color);
-	font-weight: $bold-font;
+b,
+th,
+.bold {
 	font-family: var(--heading-font);
+	font-weight: $bold-font;
+	color: var(--title-color);
 }

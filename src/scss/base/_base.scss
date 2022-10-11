@@ -8,7 +8,7 @@ body {
 
 	&::after,
 	&::before {
-		content: '';
+		// content: '';
 		display: block;
 		position: absolute;
 
@@ -29,13 +29,6 @@ body {
 	}
 	&::after {
 		top: 50%;
-		// background-image: linear-gradient(
-		// 	90deg,
-		// 	rgba(162, 89, 255, 0.04) -4.28%,
-		// 	rgba(162, 89, 255, 0.04) 28.01%,
-		// 	rgba(19, 152, 254, 0.04) 73.64%,
-		// 	rgba(19, 152, 254, 0.04) 100%
-		// );
 
 		background-image: linear-gradient(
 			90deg,

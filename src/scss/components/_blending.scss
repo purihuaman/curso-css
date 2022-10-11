@@ -1,0 +1,180 @@
+.blending {
+	display: grid;
+	gap: var(--n-gap);
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	&__container {
+		padding: var(--x-padding);
+	}
+
+	&__card {
+		position: relative;
+		border: 1px solid var(--border-color);
+		border-radius: var(--bradius);
+		// width: 500px;
+		height: 500px;
+		background-position: center;
+		background-repeat: none;
+		background-size: cover;
+		// background-image: url('https://images.unsplash.com/photo-1555598508-9e072c3a0f95?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80');
+
+		// url('https://images.unsplash.com/photo-1562911791-c7a97b729ec5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDl8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=400&q=60')
+
+		// background-color: var(--primary-500);
+		// background-color: hsl(40, 100%, 80%); // darken
+		// background-color: hsl(40, 100%, 30%); // lighten
+		// background: linear-gradient(red, blue) no-repeat center / cover; // diference | exclusion
+
+		// background-blend-mode: multiply;
+		// background-blend-mode: screen;
+		// background-blend-mode: overlay;
+		// background-blend-mode: hard-light;
+		// background-blend-mode: soft-light;
+		// background-blend-mode: color-dodge;
+		// background-blend-mode: color-burn;
+		// background-blend-mode: darken;
+		// background-blend-mode: lighten;
+
+		// mix-blend-mode: difference;
+
+		display: flex;
+
+		& img {
+			height: 100%;
+			width: 100%;
+			object-fit: cover;
+			// mix-blend-mode: difference;
+
+			&:nth-of-type(2) {
+				// mix-blend-mode: exclusion;
+			}
+		}
+
+		& .cart {
+		}
+
+		& .photo {
+			display: none;
+			// background-blend-mode: multiply;
+		}
+
+		& .flor {
+		}
+	}
+
+	&__box {
+		// position: relative;
+		// width: 100%;
+		// height: 100%;
+		// background-color: rgb(255, 0, 0);
+		// mix-blend-mode: difference;
+
+		// & h2 {
+		// 	position: absolute;
+		// 	left: -3rem;
+		// 	color: rgb(0, 0, 255);
+		// 	// color: rgb(255, 0, 255);
+		// 	font-size: 5rem;
+		// }
+
+		// Usando para pintar -> hue
+
+		// position: absolute;
+		// top: 0;
+		// width: 100%;
+		// height: 100%;
+		// background-color: blue;
+		// background-color: purple;
+		// mix-blend-mode: hue;
+
+		// Usando para pinta -> color
+
+		// position: absolute;
+		// bottom: 0;
+		// left: 0;
+		// width: 100%;
+		// height: 100%;
+		// background-color: red;
+		// background: linear-gradient(red, green);
+		// mix-blend-mode: color;
+
+		// Usando para pinta -> saturation
+
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: hsl(0, 50%, 50%);
+		// mix-blend-mode: saturation;
+		// mix-blend-mode: luminosity;
+		// isolation: isolate;
+	}
+}
+
+/*
+	TODO: Blending mode
+
+	* Para elementos
+		.element { mix-blend-mode: normal; }
+
+	* Interactua con diferentes capas de tu elemento
+		.element { background-blend-mode: normal; }
+	
+	* Todas los valores se usan en ambas propiedades.
+		- mix-blend-mode
+		- background-blend-mode
+
+	- Valores base (neutral)
+		* initial -> Valor inicial de la propiedad
+		* normal -> No aplica ninguna mezcla
+		* unset -> Elimina el modo de fusión actual
+		* inherit -> Heredar los modo de fusión
+	- Otros valores base
+		* multiply -> Oscure el tono de color
+			.element { mix-blend-mode: multiply; }
+
+		* screen -> Aclara la mezcla, el tono de color
+			.element { mix-blend-mode: screen; }
+
+		* overlay -> Detecta las areas claras y oscuras.
+			.element { mix-blend-mode: overlay; }
+
+		* hard-light -> Dependiendo de las areas que tecte, si son areas oscuras aplicara algo parecido al multiply (osurecera la area), si son claras aplicara algo parecido a screen (aclarar la area).
+			.element { mix-blend-mode: hard-light; }
+
+		* soft-light -> Entreaga una imagen con tonos planos. Es muy parecido a overlay.
+			.element { mix-blend-mode: soft-light; }
+
+		* color-dodge -> Añade aclaración a los tonos, parecido a screen.
+			.element { mix-blend-mode: color-dodge; }
+
+		* color-burn -> Añade oscurida a la mezcla, dependiendo el contraste.
+			.element { mix-blend-mode: color-burn; }
+
+		* darken -> compara los colores de capaz y selecciona el mas oscuro. Apartir de eso va reemplazando los colores claros por el oscuro.
+			.element { mix-blend-mode: darken; }
+
+		* lighten -> Compara los colores de capaz y selecciona el mas claro. Apartir de eso va reemplazando los colores oscuros por el claro.
+			.element { mix-blend-mode: lighten; }
+
+		* difference -> 
+			.element { mix-blend-mode: difference; }
+
+		* exclusion -> Resta contraste
+			.element { mix-blend-mode: exclusion; }
+
+		* hue -> Se puede usar para pintar. Previamente del elemento que se quiere usar el color, debe tener una color especifica, para usarlo como color sobres las fotos. El color especifico sera usado en las colores menos luminocida (color especifico), se pueden usar para fotografias de blanco/negro.
+			.element { mix-blend-mode: hue; }
+
+		* color -> Reemplaza el tono y la saturación, dejando la iluminocidad.
+			.element { mix-blend-mode: color; }
+
+		* saturacion -> Reemplaza la saturación
+			.element { mix-blend-mode: saturacion; }
+
+		* luminosity -> 
+			.element { mix-blend-mode: luminosity; }
+
+		* isolation -> Crea un nuevo contexto
+			.element { isolation: isolate; }
+*/

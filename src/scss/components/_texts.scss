@@ -1,12 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap');
+
+@font-face {
+	font-family: 'Poppins';
+	font-weight: 600;
+	src: local('Roboto'),
+		url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+}
+@font-face {
+	font-family: 'Delius';
+	font-weight: 400;
+	src: local('Roboto'),
+		url('https://fonts.googleapis.com/css2?family=Delius&display=swap');
+}
+
 .texts {
-	background-color: #fff;
+	margin-top: var(--header-height);
+
+	&__paragraph {
+		@font-face {
+			font-family: 'Bungee Spice';
+			font-weight: 100;
+			src: url('https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap');
+			font-display: auto;
+		}
+
+		font-family: 'Bungee Spice';
+	}
+
+	&__section {
+		--title-font: 'Poppins';
+		--text-font: 'Delius';
+
+		& > h2 {
+			font-family: var(--title-font);
+			color: red;
+			white-space: nowrap;
+		}
+
+		& > p {
+			font-family: var(--text-font);
+		}
+	}
 }
 
 /*
-  * Formatos digitales de fuentes
-  - True Type Font (TTF)
-  - Open True Type Font (OTF)
-  - Embedded Open Type (EOT)
-  - Web Open Font Format (WOFF) (WOFF2)
-  - Scalable Vector Graphics (SVG)
+	* Formatos digitales de fuentes
+	- True Type Font (TTF)
+	- Open True Type Font (OTF)
+	- Embedded Open Type (EOT)
+	- Web Open Font Format (WOFF) (WOFF2)
+	- Scalable Vector Graphics (SVG)
+
+	* @font-face
+	- @font-face {
+		src: local('Roboto'), url();
+	}
+
+	* font-display: auto | block | swap | fallback | optional
+	- font-display: auto; // Espera a descar la fuentes, depende del navegador.
+	- font-display: block; // Muestra cuando el contenido cuando descarga la fuente.
+	- font-display: swap; // Muestra la fuente alternativa, hasta que descarga la fuente.
+	- font-display: fallback; // Espera un tiempo para descargar la fuente, si no muestra la fuente alternativa.
+	- font-display: optional; // Deja al navegador la decisión de descar la fuente, sino usara al fuente alternativa.
+
+	* white-space
+		.text { white-space: normal | nowrap }
+
+	* overflow-wrap
+		.text { overflow-wrap: normal | anywhere | break-word; }
+
+	* hyphens (Proporciona saltos de linea ha palabras grandes)
+		.text { hyphens: none | manual | auto; }
 */

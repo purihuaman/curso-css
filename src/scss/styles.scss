@@ -24,7 +24,11 @@
 @import './components/variables';
 @import './components/pseudoelementos';
 @import './components/lists';
-@import './components/texts';
+// @import './components/texts';
+@import './components/table';
+@import './components/form';
+@import './components/filters';
+@import './components/blending';
 
 // ==> Helpers <==
 @import './helpers/buttons';

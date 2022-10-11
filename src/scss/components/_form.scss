@@ -1,0 +1,225 @@
+.forms {
+	margin-top: var(--header-height);
+
+	&__form {
+	}
+
+	&__field {
+		&:focus-within {
+			background-color: blue;
+		}
+	}
+
+	&__label {
+	}
+
+	&__input {
+		font-family: inherit;
+		font-size: inherit;
+
+		&[type='text'] {
+			background-color: royalblue;
+			-ms-appearance: button;
+		}
+
+		&:focus {
+			background-color: green;
+		}
+
+		&:focus-within {
+			background-color: crimson;
+		}
+
+		&::placeholder {
+			color: aqua;
+			// font-weight: bold;
+		}
+
+		&:placeholder-shown {
+			background-color: orchid;
+		}
+
+		&[type='email']:read-only {
+			background-color: yellow;
+		}
+
+		&[disabled]:disabled {
+			background-color: crimson;
+		}
+
+		&:enabled {
+			background-color: steelblue;
+		}
+
+		&:valid {
+			background-color: green !important;
+		}
+
+		&:invalid {
+			background-color: purple;
+		}
+	}
+
+	&__textarea {
+		// resize: none;
+		resize: vertical;
+		resize: horizontal;
+	}
+
+	&__text {
+		resize: both;
+		overflow: scroll;
+	}
+}
+
+// FIXME: ==> Ejercicio formulario <==
+
+.form {
+	margin-top: var(--header-height);
+	padding: var(--n-padding);
+	max-width: 400px;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: var(--bradius);
+	box-shadow: var(--shadow-all);
+	background-color: var(--second-bg);
+
+	&__container {
+	}
+
+	&__fieldset {
+		border-color: var(--border-color);
+		outline: none;
+		margin-bottom: var(--n-margin);
+		border-radius: var(--bradius);
+
+		&:focus-within legend {
+			color: var(--primary-500);
+		}
+	}
+
+	&__legend {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		color: var(--grey-300);
+		font-family: var(--heading-font);
+	}
+
+	&__field {
+		display: flex;
+		flex-direction: column-reverse;
+	}
+
+	&__label {
+		padding-left: var(--s-padding);
+		margin: var(--s-margin) 0;
+	}
+
+	&__input {
+		&:focus + label {
+			color: var(--primary-500);
+		}
+
+		&--button {
+			min-width: 120px;
+			max-width: 200px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
+}
+
+// FIXME: ==> Ejercicio formulario 02 <==
+.newform {
+	&__container {
+		margin-top: calc(var(--header-height) * 2);
+		padding: var(--n-padding);
+		background-color: var(--second-bg);
+		max-width: 700px;
+		margin-left: auto;
+		margin-right: auto;
+		border-radius: var(--bradius);
+	}
+
+	&__fieldset {
+		border: none;
+		padding: var(--n-padding);
+		background-color: var(--third-bg);
+		display: flex;
+		flex-wrap: wrap;
+
+		&:focus-within legend {
+			color: var(--primary-500);
+		}
+	}
+	&__fieldset:not(:last-child) {
+		margin-bottom: var(--n-margin);
+	}
+
+	&__legend {
+		font-family: var(--heading-font);
+	}
+
+	&__field {
+		flex: 1;
+		flex-basis: 50%;
+		display: flex;
+		align-items: center;
+
+		&:last-child {
+			align-self: flex-start;
+			flex: 0.5;
+		}
+	}
+
+	&__field:not(:last-child) {
+		margin-bottom: var(--n-margin);
+	}
+
+	&__label {
+		order: -1;
+		flex-basis: 100px;
+		text-align: right;
+		margin-right: var(--s-margin);
+		font-size: 90%;
+	}
+
+	&__input {
+		flex: 1;
+
+		&:focus + label {
+			color: var(--primary-500);
+		}
+	}
+
+	&__select {
+		flex: 1;
+	}
+}
+
+// TODO: ==> Propiedades CSS en elementos de formularios <==
+/*
+	- Resize: Redimenciona un area de una etiqueta (textarea).
+		* resize: both (default) | none | vertical | horizontal
+
+	- Focus: Cuando un elemento recibe un el foco, Ejm: Un input cuando se le hace click.
+		* input:focus {
+			background-color: red;
+		}
+
+	- Focus-within: Detecta si uno de sus hijos tiene el foco, y se les aplica los estilos a (.element).
+		* .element:focus-within { propiedad: valor; }
+
+	- Placeholder-shown: Actua mientra actual el placeholder se muestre
+		* .element:placeholder-shown { propiedad: valor; }
+
+	- Required: Si un elemento tiene el atributo required.
+		* .element:required { propiedad: valor; }
+
+	- Valid: Valida si la info es correcta
+		* .element:valid { propiedad: valor; }
+
+	- pattern: Valida un valor de un input, va como atributo en el html
+		
+*/

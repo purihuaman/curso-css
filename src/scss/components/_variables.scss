@@ -148,7 +148,7 @@ $selector: article;
 
 @media (prefers-color-scheme: dark) {
 	:root {
-		--first-bg: #222;
+		// --first-bg: #222;
 	}
 }
 
@@ -163,7 +163,6 @@ $selector: article;
 	}
 }
 .boton {
-	font-weight: 600;
 	padding: 0.5rem 0.75rem;
 	cursor: pointer !important;
 	background-color: var(--color);

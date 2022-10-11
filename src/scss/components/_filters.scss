@@ -1,0 +1,186 @@
+.filters {
+	&__container {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+		gap: var(--n-gap);
+		padding: var(--x-padding);
+	}
+
+	&__image {
+		margin-left: auto;
+		margin-right: auto;
+		overflow: hidden;
+		padding: var(--n-padding);
+		background-color: var(--second-bg);
+
+		& img {
+			height: 100%;
+			object-fit: cover;
+		}
+
+		&.active {
+			border: 8px double var(--primary-500);
+			order: -1;
+		}
+
+		&::before {
+			content: attr(id);
+			display: block;
+			text-align: center;
+			text-transform: capitalize;
+		}
+
+		&.normal img {
+		}
+		&.grayscale img {
+			filter: grayscale(0.5);
+		}
+		&.sepia img {
+			// filter: sepia(50%);
+			filter: sepia(90%);
+		}
+
+		&.invert img {
+			filter: invert(100%);
+			// filter: invert(50%);
+			filter: invert(0);
+			filter: invert(36%);
+		}
+
+		&.huerotate img {
+			// filter: hue-rotate(260rad);
+			// filter: hue-rotate(190deg);
+			// filter: hue-rotate(-90deg);
+			animation: hue 3s linear infinite;
+
+			@keyframes hue {
+				to {
+					filter: hue-rotate(1turn);
+				}
+			}
+		}
+
+		&.brightness img {
+			filter: brightness(150%);
+			filter: brightness(50%);
+			filter: brightness(1.5);
+			filter: brightness(1);
+			filter: brightness(0.5);
+
+			animation: brightness 3s linear infinite alternate;
+
+			@keyframes brightness {
+				to {
+					filter: brightness(150%);
+				}
+			}
+		}
+
+		&.contrast img {
+			filter: contrast(80%);
+			filter: contrast(120%);
+			filter: contrast(200%);
+		}
+
+		&.saturate img {
+			filter: saturate(200%);
+		}
+
+		&.blur img {
+			filter: blur(0);
+			animation: blurr 3s linear infinite alternate;
+
+			@keyframes blurr {
+				to {
+					filter: blur(4px);
+				}
+			}
+		}
+
+		&.opacity img {
+			// opacity: 0.5; // Esto solo para elementos estaticos.
+			filter: opacity(0.2);
+			// transition: filter 0.5s;
+			animation: opacitys 3s linear infinite alternate;
+
+			@keyframes opacitys {
+				to {
+					filter: opacity(1);
+				}
+			}
+		}
+
+		&.opacity:hover img {
+			filter: opacity(1);
+		}
+
+		&.dropshadow img {
+			filter: drop-shadow(80px 20px 0px var(--primary-800));
+			filter: drop-shadow(80px 20px 0px purple);
+		}
+
+		&.ejercicio1 img {
+			filter: sepia(0.5) contrast(150%) saturate(2);
+			filter: contrast(120%) sepia(0.1) brightness(0.5);
+		}
+
+		& .my-box {
+			width: 250px;
+			height: 250px;
+			background-color: var(--third-bg);
+			border-radius: var(--bradius);
+			position: relative;
+
+			&::after {
+				content: '';
+				display: block;
+				position: absolute;
+				left: 5%;
+				bottom: -1rem;
+				background-color: var(--grey-500);
+				background-color: red;
+				width: 90%;
+				height: 20px;
+				border-radius: 90%;
+				filter: blur(3px) opacity(0.5);
+				z-index: -1;
+			}
+		}
+	}
+}
+
+/*
+	TODO: Filtros
+	* normal : No se aplica filtro a la imagen.
+	
+	* grayscale :
+
+	* sepia : Su comportación es similar a fotografia antigua.
+		- .elemento img { filter: sepia(n%) }
+
+	* invert : Invierte los colores, acepta porcentajes y decimales. En 50% o 0.5 se produce un valor neutral. 
+		Basado en rgb: rgb(255 - 20, 255-34, 255-200)
+		- .elemento img { filter: invert(n%) }
+
+	* huerotate : Basado en la rueda de tonos de color. Acepta grados, radianes. Tambien acepta valores negativos.
+		- .elemento img { filter: hue-rotate(n1deg | n1rad) }
+
+	* brightness : Da luminosidad a los colores. Valor neutro es el 100%, acepta porcentajes. No acepta negativos, solo decimales.
+		- .elemento img { filter: brightness(n% | n.n) }
+
+	* contrast : Delimitante entre las partes claras y oscuras, podemos que se resalten a mas o menos. Valor base es 100% o 1.
+		- .elemento img { filter: contrast(n% | n.n) }
+		
+	*	saturate : Da vida a los colores puro, y puede quitar vida a los colores puro si estan muy saturados. Maneja porcentajes
+		- .elemento img { filter: saturate(n%) }
+		
+	* blur : Decenfoque. Mescla los pixeles entre si, le quita nitidez. Maneja pixeles, em, rem. No acepta valores negativos.
+		- .elemento img { filter: blur(npx) }
+
+	* opacity : Apto para animaciones.
+		- .elemento img { filter: opacity(n.n) }
+
+	* drop-shadow : Aplica una sombra a un elemento. En svg se aplica a los contornos. Hace copia de un elemento.
+		- .elemento img { filter: drop-shadow(npx npx npx color) }
+
+*/

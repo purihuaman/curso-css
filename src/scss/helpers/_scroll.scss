@@ -1,39 +1,279 @@
 /* Estilos de scrool */
 
-$sizeScroll: 0.5rem;
+$scroll-size: 8px;
+$track-bg: var(--second-bg);
+$thumb-bg: var(--primary-600);
+$thumb-hover: var(--primary-800);
+$scroll-radius: var(--bradius);
+$time-bg: 0.8s;
 
-* {
+.scroll {
+	// padding: var(--x-padding);
+	margin-bottom: var(--x-margin);
+
+	&__container {
+		display: none;
+		position: relative;
+		width: 300px;
+		height: 300px;
+		background-color: red;
+		// overflow: auto;
+		// overflow-y: scroll;
+		// overflow-y: hidden;
+	}
+
+	&__overflow {
+		width: 100%;
+		height: 100%;
+		overflow-y: auto;
+	}
+
+	&__element {
+		width: 50px;
+		height: 50px;
+		background-color: $thumb-bg;
+		position: absolute;
+		bottom: -50px;
+		right: -50px;
+	}
+
+	// Scroll smooth
+	&__smooth {
+		background-color: #faa;
+		width: 100%;
+	}
+
+	&__nav {
+		background-color: var(--second-bg);
+		padding: var(--n-padding);
+		display: flex;
+		gap: var(--n-gap);
+		text-align: center;
+		position: sticky;
+
+		& a {
+			flex: 1;
+			background-color: purple;
+		}
+	}
+
+	&__section {
+		width: 500px;
+		height: 500px;
+		overflow: auto;
+		scroll-behavior: smooth;
+		// scroll-padding-top: 2rem; // Va en el padre
+		// scroll-snap-type: y proximity;
+		scroll-snap-type: y mandatory;
+
+		& .item {
+			scroll-snap-align: start;
+			height: 100%;
+			width: 100%;
+			background-color: green;
+			margin-bottom: var(--x-margin);
+			font-size: 5rem;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			scroll-margin-top: 3rem; // Va en el hijo
+		}
+	}
+}
+
+.element {
+	width: 50px;
+	height: 50px;
+	background-color: blueviolet;
+	float: left;
+}
+
+.overflow {
+	overflow: hidden;
+	background-color: royalblue;
+}
+
+.fullpage {
+	background-color: #faf;
+	min-height: 100vh;
+	scroll-behavior: smooth;
+	scroll-snap-type: y mandatory;
+
+	&__item {
+		scroll-snap-align: start;
+		min-height: 100vh;
+		width: 100%;
+		font-size: 5rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		&:nth-of-type(1) {
+			background-color: #ff5f45;
+		}
+		&:nth-of-type(2) {
+			background-color: #0798ec;
+		}
+		&:nth-of-type(3) {
+			background-color: #fc6c7c;
+		}
+		&:nth-of-type(4) {
+			background-color: #fec401;
+		}
+	}
+}
+
+/*
+	-> TODO: SCROLL
+		* Debordamiento : overflow: visible | hidden | auto | scroll
+		* scroll smooth : Se aplica cuando se genera un scroll, genera un desplazamiento suavizado.
+			- scroll-padding-top : Produce un espaciado de la parte top de su contenedor. Esta propiedad va en el padre.
+			- scroll-margin-top : Produce un espaciado de la parte top de su contenedor. Esta propieda va en el hijo.
+			- scroll-snap-type : Ajusta el desplazamiento con el mouse.
+				-> scroll-snap-type : eje (y | x | both"ambos ejes" ) type (proximity | mandatory);
+				-> proximity: depende de la propiedad scroll-snap-align. Este tipo de valor objerva observa la aproximación del sgte elemento.
+				-> mandatory : Si observa el siguiente valor, automaticamente pasa al sgte elemento.
+			- scroll-snap-align : Observa la posición del scroll, va en el los elementos.
+				-> scroll-snap-align : start | center | end;
+
+		* scroll smooth : Se aplica cuando se genera un scroll.
+*/
+
+*,
+html {
 	scrollbar-width: thin;
-}
 
-*::-webkit-scrollbar {
-	-webkit-appearance: none;
-}
+	// NOTE: SCROLL
+	// &::-webkit-scrollbar {
+	// 	// width: $size-scroll;
+	// 	background-color: crimson;
 
-*::-webkit-scrollbar-button:increment,
-*::-webkit-scrollbar-button {
-	display: none;
-}
+	// 	&:vertical {
+	// 		// width: 50px;
+	// 	}
+	// }
+	// NOTE: TRACK
+	// &::-webkit-scrollbar-track {
+	// 	background-color: green;
+	// }
 
-*::-webkit-scrollbar:horizontal,
-*::-webkit-scrollbar:vertical {
-	width: $sizeScroll;
-	height: $sizeScroll;
-}
+	// NOTE: CORNE
+	// &::-webkit-scrollbar-corner {
+	// 	background-color: purple;
+	// 	display: block;
+	// }
 
-::-webkit-scrollbar {
-	background-color: var(--second-bg);
-}
-::-webkit-scrollbar,
-::-webkit-scrollbar-thumb {
-	transition: background-color 0.5s;
-}
+	// NOTE: TRACK PIECE
+	// &::-webkit-scrollbar-track-piece {
+	// 	background-color: yellow;
 
-::-webkit-scrollbar-thumb {
-	border-radius: var(--bradius);
-	background-color: var(--primary-500);
-}
+	// 	&:start {
+	// 		background-color: lime;
+	// 	}
 
-::-webkit-scrollbar-thumb:hover {
-	background-color: var(--primary-700);
+	// 	&:end {
+	// 		background-color: lightsalmon;
+	// 	}
+
+	// 	&:increment {
+	// 		background-color: #0798ec;
+	// 	}
+
+	// 	&:decrement {
+	// 		background-color: lightgreen;
+	// 	}
+	// }
+
+	// NOTE: THUMB
+	// &::-webkit-scrollbar-thumb {
+	// 	background-color: orangered;
+
+	// 	&:vertical:hover {
+	// 		background-color: skyblue;
+	// 	}
+
+	// 	&:horizontal:hover {
+	// 		background-color: red;
+	// 	}
+
+	// 	&:active {
+	// 		background-color: white;
+	// 	}
+
+	// 	&:hover {
+	// 		background-color: black;
+	// 	}
+	// }
+
+	// NOTE: BUTTON
+	// &::-webkit-scrollbar-button {
+	// 	background-color: blue;
+
+	// 	&:horizontal {
+	// 		background-color: blueviolet;
+	// 		&:start {
+	// 			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='none' d='M0 0h24v24H0z'/%3E%3Cpath d='M12 2c5.52 0 10 4.48 10 10s-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2zm0 18c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8zm0-9h4v2h-4v3l-4-4 4-4v3z'/%3E%3C/svg%3E");
+	// 		}
+
+	// 		&:end {
+	// 			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='none' d='M0 0h24v24H0z'/%3E%3Cpath d='M12 11V8l4 4-4 4v-3H8v-2h4zm0-9c5.52 0 10 4.48 10 10s-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2zm0 18c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8z'/%3E%3C/svg%3E");
+	// 		}
+	// 	}
+
+	// 	&:vertical {
+	// 		background-color: orchid;
+
+	// 		&:start {
+	// 			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='none' d='M0 0h24v24H0z'/%3E%3Cpath d='M12 2c5.52 0 10 4.48 10 10s-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2zm0 18c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8zm1-8v4h-2v-4H8l4-4 4 4h-3z'/%3E%3C/svg%3E");
+	// 		}
+
+	// 		&:end {
+	// 			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='none' d='M0 0h24v24H0z'/%3E%3Cpath d='M12 2c5.52 0 10 4.48 10 10s-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2zm0 18c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8zm1-8h3l-4 4-4-4h3V8h2v4z'/%3E%3C/svg%3E");
+	// 		}
+	// 	}
+
+	// 	// &:start {
+	// 	// 	background-color: cyan;
+	// 	// }
+
+	// 	&:end {
+	// 		background-color: deeppink;
+	// 	}
+
+	// 	&:increment {
+	// 		background-color: #0798ec;
+	// 	}
+
+	// 	&:decrement {
+	// 		background-color: brown;
+	// 	}
+	// }
+
+	// Ejercicio: dark and light scroll
+
+	&::-webkit-scrollbar {
+		width: $scroll-size;
+		height: $scroll-size;
+	}
+
+	&::-webkit-scrollbar-track,
+	&::-webkit-scrollbar-corner {
+		background-color: $track-bg;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background-color: $thumb-bg;
+		border-radius: $scroll-radius;
+		transition: background-color $time-bg;
+
+		&:active,
+		&:hover {
+			background-color: $thumb-hover;
+		}
+	}
+
+	&::-webkit-scrollbar-button:increment,
+	&::-webkit-scrollbar-button {
+		display: none;
+	}
 }

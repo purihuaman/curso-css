@@ -1,0 +1,81 @@
+.grid {
+	--columns: 1;
+	background-color: #1a72b2;
+
+	&__content {
+		display: grid;
+		grid-template-columns: repeat(var(--columns), 1fr);
+		gap: var(--l-gap);
+		text-align: center;
+		padding: var(--x-padding) 0;
+
+		& h1 {
+			color: var(--grey-200);
+		}
+
+		& del {
+			color: skyblue;
+		}
+
+		@include querys(tablets) {
+			--columns: 2;
+			align-items: center;
+			text-align: left;
+		}
+
+		& .item1 {
+			display: flex;
+			flex-direction: column;
+		}
+
+		& .item1 .button {
+			align-self: flex-end;
+		}
+
+		& .left {
+			// grid-column: 1/2;
+			grid-row: 1/2;
+		}
+
+		& .right {
+			grid-row: 1/2;
+
+			@include querys(tablets) {
+				grid-column: 2/-1;
+			}
+		}
+	}
+
+	&.second {
+		background-color: transparent;
+	}
+}
+
+.column {
+	text-align: center;
+
+	& h2 {
+		margin-bottom: var(--x-margin);
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		gap: var(--l-gap);
+
+		@include querys(laptops) {
+			flex-direction: row;
+			align-items: center;
+		}
+
+		& article {
+			background-color: transparent;
+
+			& img {
+				width: 100px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+		}
+	}
+}

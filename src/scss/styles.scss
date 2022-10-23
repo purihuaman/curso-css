@@ -1,3 +1,5 @@
+// @charset 'UTF-8';
+
 // ==> Config <==
 @import './config/vars';
 @import './config/mixins';
@@ -21,15 +23,17 @@
 // @import './components/position';
 // @import './components/country';
 // @import './components/mounth';
-@import './components/variables';
-@import './components/pseudoelementos';
-@import './components/lists';
+// @import './components/variables';
+// @import './components/pseudoelementos';
+// @import './components/lists';
 // @import './components/texts';
-@import './components/table';
-@import './components/form';
-@import './components/filters';
+// @import './components/table';
+// @import './components/form';
+// @import './components/filters';
 // @import './components/blending';
-@import './components/cuts';
+// @import './components/cuts';
+// @import './components/holy-grail-layout';
+@import './components/layout-practice';
 
 // ==> Helpers <==
 @import './helpers/buttons';

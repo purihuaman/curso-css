@@ -252,6 +252,7 @@ html {
 	// Ejercicio: dark and light scroll
 
 	&::-webkit-scrollbar {
+		-webkit-appearance: none;
 		width: $scroll-size;
 		height: $scroll-size;
 	}
